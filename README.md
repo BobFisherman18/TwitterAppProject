@@ -24,9 +24,10 @@ The following **bonus** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
+This was run on an iPhone 8.
 <img src='http://g.recordit.co/GMpJ2nIlfs.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-
+This was run on an iPhone 11 Pro.
 <img src='http://g.recordit.co/AM1yKRziKt.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 # Twitter - Part I
