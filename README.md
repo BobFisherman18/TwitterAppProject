@@ -26,6 +26,9 @@ Here's a walkthrough of implemented user stories:
 
 <img src='http://g.recordit.co/GMpJ2nIlfs.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
+
+<img src='http://g.recordit.co/AM1yKRziKt.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
 # Twitter - Part I
 
 Twitter App is a basic twitter app to read your tweets.
