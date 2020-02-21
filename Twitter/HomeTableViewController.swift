@@ -14,21 +14,41 @@ class HomeTableViewController: UITableViewController {
     var tweetArray = [NSDictionary]()
     var numberOfTweet: Int!
     
+    let myRefreshControl = UIRefreshControl()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //call this method to load tweets
-        loadTweet()
+        
+        
+        myRefreshControl.addTarget(self, action: #selector(loadTweets), for: .valueChanged)
+        tableView.refreshControl = myRefreshControl
+        
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 150
         
     }
     
+    override func viewDidAppear(_ animated: Bool){
+        super.viewDidAppear(animated)
+        self.loadTweets()
+        
+        
+        
+    }
+    
+    
     //calls API for Twitter
     
-    func loadTweet(){
+    @objc  func  loadTweets(){
+        
+        numberOfTweet = 20
         
         let myUrl = "https://api.twitter.com/1.1/statuses/home_timeline.json"
        
         //this gives count of records; see Twitter API documentation on Getting Tweet Timelines
-        let myParams = ["count": 10]
+        let myParams = ["count": numberOfTweet]
         
         TwitterAPICaller.client?.getDictionariesRequest(url: myUrl, parameters: myParams, success: { (tweets: [NSDictionary]) in
             
@@ -40,12 +60,57 @@ class HomeTableViewController: UITableViewController {
             }
             self.tableView.reloadData()
             
+            self.myRefreshControl.endRefreshing()
+            
+            
         }, failure: { (Error) in
             print("Could not load Tweets!")
         })
         
     }
  
+    
+    func loadMoreTweets(){
+        
+        let myUrl = "https://api.twitter.com/1.1/statuses/home_timeline.json"
+        
+        numberOfTweet = numberOfTweet + 20
+        
+        let myParams = ["count": numberOfTweet]
+        
+        TwitterAPICaller.client?.getDictionariesRequest(url: myUrl, parameters: myParams, success: { (tweets: [NSDictionary]) in
+            
+            //removes tweets in array
+            self.tweetArray.removeAll()
+            
+            for tweet in tweets{
+                self.tweetArray.append(tweet)
+            }
+            self.tableView.reloadData()
+            
+           self.myRefreshControl.endRefreshing()
+            
+            
+        }, failure: { (Error) in
+            print("Could not load Tweets!")
+        })
+
+        
+        
+    }
+ 
+    
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath){
+        if indexPath.row + 1 == tweetArray.count{
+            
+            loadMoreTweets()
+            
+        }
+        
+    }
+ 
+
     
     
 
@@ -79,6 +144,16 @@ class HomeTableViewController: UITableViewController {
         if let imageData = data {
             cell.profileImageView.image = UIImage(data: imageData)
         }
+        
+        //cell grabs variables in Tweet Cell swift file
+        //checks attribute "favorited" as a boolean
+        cell.setFavorite(tweetArray[indexPath.row]["favorited"] as! Bool)
+        
+        //checks attribute "id" as a Integer
+        cell.tweetId = tweetArray[indexPath.row]["id"] as! Int
+        
+        //checks attribute "retweeted" as a boolean
+        cell.setRetweeted(tweetArray[indexPath.row]["retweeted"] as! Bool)
         
         return cell
     }

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,8 @@
 		6EBCF52B21DF07FC00451C03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EBCF52921DF07FC00451C03 /* Main.storyboard */; };
 		6EBCF54421E047A500451C03 /* TwitterAPICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EBCF54321E047A500451C03 /* TwitterAPICaller.swift */; };
 		6EBCF54E21E71F9400451C03 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6EBCF54D21E71F9400451C03 /* Launch Screen.storyboard */; };
+		7A1280F723FDDD8A0056E3C8 /* TweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1280F623FDDD8A0056E3C8 /* TweetViewController.swift */; };
+		7A553B9823FF56170066C34C /* RSKPlaceholderTextView in Frameworks */ = {isa = PBXBuildFile; productRef = 7A553B9723FF56170066C34C /* RSKPlaceholderTextView */; };
 		7A78FF4123F46E1400C4B2DA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A78FF4023F46E1400C4B2DA /* LoginViewController.swift */; };
 		7A78FF4323F477D000C4B2DA /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A78FF4223F477D000C4B2DA /* HomeTableViewController.swift */; };
 		7A78FF4523F48D5300C4B2DA /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A78FF4423F48D5300C4B2DA /* TweetCell.swift */; };
@@ -27,6 +29,7 @@
 		6EBCF53121DF07FE00451C03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6EBCF54321E047A500451C03 /* TwitterAPICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterAPICaller.swift; sourceTree = "<group>"; };
 		6EBCF54D21E71F9400451C03 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		7A1280F623FDDD8A0056E3C8 /* TweetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetViewController.swift; sourceTree = "<group>"; };
 		7A78FF4023F46E1400C4B2DA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7A78FF4223F477D000C4B2DA /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 		7A78FF4423F48D5300C4B2DA /* TweetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
@@ -40,6 +43,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				504CFC1F641D05B5D40A0F17 /* Pods_Twitter.framework in Frameworks */,
+				7A553B9823FF56170066C34C /* RSKPlaceholderTextView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +89,7 @@
 				7A78FF4023F46E1400C4B2DA /* LoginViewController.swift */,
 				7A78FF4223F477D000C4B2DA /* HomeTableViewController.swift */,
 				7A78FF4423F48D5300C4B2DA /* TweetCell.swift */,
+				7A1280F623FDDD8A0056E3C8 /* TweetViewController.swift */,
 			);
 			path = Twitter;
 			sourceTree = "<group>";
@@ -115,6 +120,9 @@
 			dependencies = (
 			);
 			name = Twitter;
+			packageProductDependencies = (
+				7A553B9723FF56170066C34C /* RSKPlaceholderTextView */,
+			);
 			productName = Twitter;
 			productReference = 6EBCF52221DF07FC00451C03 /* Twitter.app */;
 			productType = "com.apple.product-type.application";
@@ -144,6 +152,9 @@
 				Base,
 			);
 			mainGroup = 6EBCF51921DF07FC00451C03;
+			packageReferences = (
+				7A553B9623FF56170066C34C /* XCRemoteSwiftPackageReference "RSKPlaceholderTextView" */,
+			);
 			productRefGroup = 6EBCF52321DF07FC00451C03 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -211,6 +222,7 @@
 			files = (
 				7A78FF4323F477D000C4B2DA /* HomeTableViewController.swift in Sources */,
 				7A78FF4123F46E1400C4B2DA /* LoginViewController.swift in Sources */,
+				7A1280F723FDDD8A0056E3C8 /* TweetViewController.swift in Sources */,
 				7A78FF4523F48D5300C4B2DA /* TweetCell.swift in Sources */,
 				6EBCF54421E047A500451C03 /* TwitterAPICaller.swift in Sources */,
 				6EBCF52621DF07FC00451C03 /* AppDelegate.swift in Sources */,
@@ -409,6 +421,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7A553B9623FF56170066C34C /* XCRemoteSwiftPackageReference "RSKPlaceholderTextView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ruslanskorb/RSKPlaceholderTextView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7A553B9723FF56170066C34C /* RSKPlaceholderTextView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7A553B9623FF56170066C34C /* XCRemoteSwiftPackageReference "RSKPlaceholderTextView" */;
+			productName = RSKPlaceholderTextView;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6EBCF51A21DF07FC00451C03 /* Project object */;
 }
